@@ -26,8 +26,11 @@ int main() {
       alterarTarefa(&lt);
     } else if (opcao == 5) { //caso o usuario digite "5", a funcao de filtrar por prioridade é chamada
       filtrarPrioridade(lt);
-    }
-    else { //caso o usuario digite qualquer outro numero, o loop é reiniciado e imprime a mensagem de opcao inexistemte
+    } else if (opcao == 6) { //caso o usuario digite "6", a funcao de filtrar por estado é chamada
+      filtrarEstado(lt);
+    } else if(opcao == 7){
+      filtrarCategoria(lt);
+    } else { //caso o usuario digite qualquer outro numero, o loop é reiniciado e imprime a mensagem de opcao inexistemte
       printf("Opcao nao existente!\n");
     }
 
