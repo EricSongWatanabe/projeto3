@@ -28,8 +28,10 @@ int main() {
       filtrarPrioridade(lt);
     } else if (opcao == 6) { //caso o usuario digite "6", a funcao de filtrar por estado é chamada
       filtrarEstado(lt);
-    } else if(opcao == 7){
+    } else if(opcao == 7){ //caso o usuario digite "7", a funcao de filtrar por categoria é chamada
       filtrarCategoria(lt);
+    } else if(opcao == 8){ //caso o usuario digite "8", a funcao de filtrar por categoria e prioridade é chamada
+      filtrarCategoriaPrioridade(lt);
     } else { //caso o usuario digite qualquer outro numero, o loop é reiniciado e imprime a mensagem de opcao inexistemte
       printf("Opcao nao existente!\n");
     }

@@ -23,14 +23,13 @@ int alterarTarefa(ListadeTarefas *lt);
 int filtrarPrioridade(ListadeTarefas lt);
 int filtrarEstado(ListadeTarefas lt);
 int filtrarCategoria(ListadeTarefas lt);
+int filtrarCategoriaPrioridade(ListadeTarefas lt);
 
 void printMenu(); // funcao de imprimir o menu com as opcoes
 
-int salvarLista(ListadeTarefas lt,
-                char nome[]); // funcao de salvar a lista de tarefas
+int salvarLista(ListadeTarefas lt, char nome[]); // funcao de salvar a lista de tarefas
 
-int carregarLista(ListadeTarefas *lt,
-                  char nome[]); // funcao de carregar a lista de tarefas
+int carregarLista(ListadeTarefas *lt, char nome[]); // funcao de carregar a lista de tarefas
 
 int alterarTarefa(ListadeTarefas *lt);
 
