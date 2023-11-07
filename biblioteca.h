@@ -1,6 +1,7 @@
 #ifndef PROJETO_1_BIBLIOTECA_H
 #define PROJETO_1_BIBLIOTECA_H
 
+
 typedef struct tarefa { // struct com as variaveis para cada tarefa
   int prioridade; // variavel para armazenar o conteudo relacionado a prioridade
   char descricao[300]; // variavel para armazenar o conteudo relacionado a descricao
@@ -8,6 +9,7 @@ typedef struct tarefa { // struct com as variaveis para cada tarefa
   int estado;
   int num;
 } Tarefa;
+
 
 typedef struct { // struct com a lista de tarefas
   Tarefa t[100]; // lista de tarefas, sendo 100 o limite
@@ -24,6 +26,9 @@ int filtrarPrioridade(ListadeTarefas lt);
 int filtrarEstado(ListadeTarefas lt);
 int filtrarCategoria(ListadeTarefas lt);
 int filtrarCategoriaPrioridade(ListadeTarefas lt);
+int exportarPorPrioridade(ListadeTarefas lt);
+int exportarPorCategoria(ListadeTarefas lt);
+int exportarPorPrioridadeCategoria(ListadeTarefas lt);
 
 void printMenu(); // funcao de imprimir o menu com as opcoes
 

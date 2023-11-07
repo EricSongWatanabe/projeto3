@@ -7,6 +7,7 @@ int main() {
   char arquivo[] = "tarefas";
   ListadeTarefas lt;
 
+
   cod = carregarLista(&lt, arquivo); //chama a funcao de carregar a lista de tarefas
   if (cod == 1) //caso a lista estiver vazia, a quantidade é zerada
   lt.qtd = 0;
@@ -32,6 +33,12 @@ int main() {
       filtrarCategoria(lt);
     } else if(opcao == 8){ //caso o usuario digite "8", a funcao de filtrar por categoria e prioridade é chamada
       filtrarCategoriaPrioridade(lt);
+    } else if(opcao == 9){ //caso o usuario digite "9", a funcao de exportar por prioridade é chamada
+      exportarPorPrioridade(lt);
+    } else if(opcao == 10){ //caso o usuario digite "10", a funcao de exportar por categoria é chamada
+      exportarPorCategoria(lt);
+    } else if(opcao == 11){ //caso o usuario digite "11", a funcao de exportar por prioridade e categoria é chamada
+      exportarPorPrioridadeCategoria(lt);
     } else { //caso o usuario digite qualquer outro numero, o loop é reiniciado e imprime a mensagem de opcao inexistemte
       printf("Opcao nao existente!\n");
     }
