@@ -1,11 +1,8 @@
 #include "biblioteca.h"
 #include <stdio.h>
 #include <string.h>
-// 06/11/2023 15:43
 
-int buscaTarefa(
-    ListadeTarefas lt,
-    int numTarefa) { // funcao de buscar a tarefa a partir do seu numero
+int buscaTarefa(ListadeTarefas lt, int numTarefa) { // funcao de buscar a tarefa a partir do seu numero
   for (int index = 0; index < 100; index++) { // percorre por toda a lista de tarefas ate achar o numero digitado
     if (lt.t[index].num == numTarefa) {
       return index; // retorna o index da tarefa
@@ -14,7 +11,7 @@ int buscaTarefa(
   return -1; // caso nao encontre, retorna -1
 }
 
-int criarTarefa(ListadeTarefas *lt) {
+int criarTarefa(ListadeTarefas *lt) { // funcao de criar tarefa
   printf("\nCriar tarefa\n");
   printf("\nPrioridade da Tarefa (0 - 10): ");
   scanf("%d", &lt->t[lt->qtd].prioridade); // escanea a prioridade que o usuario digitou
@@ -35,7 +32,7 @@ int criarTarefa(ListadeTarefas *lt) {
   return 0;
 }
 
-int deletarTarefa(ListadeTarefas *lt) {
+int deletarTarefa(ListadeTarefas *lt) { // funcao de deletar tarefa
   printf("\nDeletar tarefa\n");
   if (lt->qtd == 0) { // caso a quantidade de tarefas na lista for 0, imprime a mensagem de lista vazia
     printf("A lista de tarefas esta vazia. Nao ha nada para deletar.\n");
@@ -43,7 +40,7 @@ int deletarTarefa(ListadeTarefas *lt) {
   }
   printf("\nDigite o numero do lembrete: ");
   int numLembrete;
-  scanf("%d", &numLembrete); // escanea qual o lembrete (a tarefa) que o usuarion deseja deletar
+  scanf("%d", &numLembrete); // escanea qual o lembrete (a tarefa) que o usuario deseja deletar
 
   if (numLembrete < 1 ||
       numLembrete > lt->qtd) { // caso o numero do lembrete nao for encontrado, imprime a mensagem de numero invalido
@@ -58,7 +55,7 @@ int deletarTarefa(ListadeTarefas *lt) {
   return 0;
 }
 
-int listarTarefas(ListadeTarefas lt) {
+int listarTarefas(ListadeTarefas lt) { // funcao de listar tarefas
   printf("\nListar tarefas\n");
   for (int i = 0; i < lt.qtd; i++) { // para cada struct de tarefa, imprime cada uma de suas variaveis com seus valores
     printf("\nLembrete %d:\n", lt.t[i].num);
@@ -76,37 +73,37 @@ int listarTarefas(ListadeTarefas lt) {
   return 0;
 }
 
-int alterarTarefa(ListadeTarefas *lt) {
+int alterarTarefa(ListadeTarefas *lt) { // funcao de alterar tarefa
   printf("\nAlterar tarefa\n");
   int numTarefa;
   printf("\nDigite o numero da tarefa que deseja alterar: ");
-  scanf("%d", &numTarefa);
+  scanf("%d", &numTarefa); // escanea qual o numero da tarefa o usuario deseja alterar
 
   int index = buscaTarefa(*lt, numTarefa);
   if (index == -1) { // caso o numero da tarefa nao seja encontrado, imprime a mensagem de numero invalido
     printf("\nNumero invalido!\n");
   } else {
     int opcao;
-    printf("\n[1] Alterar prioridade\n[2] Alterar categoria\n[3] Alterar descricao\n[4] Alterar estado\n[0] Sair\nEscolha uma opcao: ");
+    printf("\n[1] Alterar prioridade\n[2] Alterar categoria\n[3] Alterar descricao\n[4] Alterar estado\n[0] Sair\nEscolha uma opcao: "); // menu com as opcoes para alterar a tarefa
     scanf("%d", &opcao);
-    if (opcao == 0) {
+    if (opcao == 0) { // caso a opcao seja 0, sai do menu de alteracao de tarefa
       return 0;
-    } else if (opcao == 1) {
+    } else if (opcao == 1) { // caso a opcao seja 1, altera a prioridade da tarefa
       printf("\nDigite a nova prioridade: ");
       scanf("%d", &lt->t[index].prioridade);
-    } else if (opcao == 2) {
+    } else if (opcao == 2) { // caso a opcao seja 2, altera a categoria da tarefa
       int c;
       while ((c = getchar()) != '\n' && c != EOF) {}
       printf("\nDigite a nova categoria: ");
       fgets(lt->t[index].categoria, 100, stdin);
       lt->t[index].categoria[strcspn(lt->t[index].categoria, "\n")] = '\0';
-    } else if (opcao == 3) {
+    } else if (opcao == 3) { // caso a opcao seja 3, altera a descricao da tarefa
       int c;
       while ((c = getchar()) != '\n' && c != EOF) {}
       printf("\nDigite a nova descricao: ");
       fgets(lt->t[index].descricao, 300, stdin);
       lt->t[index].descricao[strcspn(lt->t[index].descricao, "\n")] = '\0';
-    } else if (opcao == 4) {
+    } else if (opcao == 4) { // caso a opcao seja 4, altera o estado da tarefa
       printf("\nDigite o novo estado (1 = Completo | 2 = Em andamento | 3 = Nao iniciado): ");
       scanf("%d", &lt->t[index].estado);
     } else {
@@ -117,13 +114,13 @@ int alterarTarefa(ListadeTarefas *lt) {
   return 0;
 }
 
-int filtrarPrioridade(ListadeTarefas lt) {
+int filtrarPrioridade(ListadeTarefas lt) { // funcao de filtrar tarefas por prioridade
   printf("\nFiltrar por Prioridade\n");
   int numPrioridade;
   printf("Digite a prioridade: ");
-  scanf("%d", &numPrioridade);
+  scanf("%d", &numPrioridade); // escanea qual a prioridade o usuario deseja filtrar
   for (int i = 0; i < lt.qtd; i++) {
-    if (lt.t[i].prioridade == numPrioridade) {
+    if (lt.t[i].prioridade == numPrioridade) { // se a prioridade for igual a prioridade digitada, imprime a tarefa
       printf("\nLembrete %d:\n", lt.t[i].num);
       printf("Prioridade: %d\n", lt.t[i].prioridade);
       printf("Categoria: %s\n", lt.t[i].categoria);
@@ -140,14 +137,13 @@ int filtrarPrioridade(ListadeTarefas lt) {
   return 0;
 }
 
-int filtrarEstado(ListadeTarefas lt) {
+int filtrarEstado(ListadeTarefas lt) { // funcao de filtrar tarefas por estado
   printf("\nFiltrar por Estado\n");
   int numEstado;
-  printf(
-      "Digite o estado (1 = Completo | 2 = Em andamento | 3 = Nao iniciado): ");
-  scanf("%d", &numEstado);
+  printf("Digite o estado (1 = Completo | 2 = Em andamento | 3 = Nao iniciado): ");
+  scanf("%d", &numEstado); // escanea qual o estado o usuario deseja filtrar
   for (int i = 0; i < lt.qtd; i++) {
-    if (lt.t[i].estado == numEstado) {
+    if (lt.t[i].estado == numEstado) { // se o estado for igual ao estado digitado, imprime a tarefa
       printf("\nLembrete %d:\n", lt.t[i].num);
       printf("Prioridade: %d\n", lt.t[i].prioridade);
       printf("Categoria: %s\n", lt.t[i].categoria);
@@ -164,20 +160,20 @@ int filtrarEstado(ListadeTarefas lt) {
   return 0;
 }
 
-int filtrarCategoria(ListadeTarefas lt) {
+int filtrarCategoria(ListadeTarefas lt) { // funcao de filtrar tarefas por categoria
   printf("\nFiltrar por Categoria\n");
   char categoria[100];
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
   printf("\nDigite a categoria: ");
-  fgets(categoria, 100, stdin);
+  fgets(categoria, 100, stdin); // escanea a categoria digitada
   categoria[strcspn(categoria, "\n")] = '\0';
   for (int j = 10; j > -1; j--) {
-    for (int i = 0; i < lt.qtd; i++) {
+    for (int i = 0; i < lt.qtd; i++) { // percorre a lista de tarefas
       int verificarCat = strcmp(lt.t[i].categoria, categoria);
-      if (lt.t[i].prioridade == j) {        
-        if (verificarCat == 0) {
+      if (lt.t[i].prioridade == j) { // verifica se a prioridade for igual a variavel do loop
+        if (verificarCat == 0) { // se a categoria digitada eh igual a categoria da tarefa, imprime a tarefa
           printf("\nLembrete %d:\n", lt.t[i].num);
           printf("Prioridade: %d\n", lt.t[i].prioridade);
           printf("Categoria: %s\n", lt.t[i].categoria);
@@ -196,21 +192,21 @@ int filtrarCategoria(ListadeTarefas lt) {
   return 0;
 }
 
-int filtrarCategoriaPrioridade(ListadeTarefas lt) {
+int filtrarCategoriaPrioridade(ListadeTarefas lt) { // funcao de filtrar tarefas por categoria e prioridade
   int prioridade;
   printf("\nFiltrar por Categoria e Prioridade\n");
   printf("\nDigite a prioridade: ");
-  scanf("%d", &prioridade);
+  scanf("%d", &prioridade); // escanea a prioridade digitada
   printf("\nDigite a categoria: ");
   char categoria[100];
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
-  fgets(categoria, 100, stdin);
+  fgets(categoria, 100, stdin); // escanea a categoria digitada
   categoria[strcspn(categoria, "\n")] = '\0';
   printf("\nTarefas com prioridade %d e categoria %s:\n", prioridade, categoria);
   for (int i = 0; i < lt.qtd; i++) {
-    if (lt.t[i].prioridade == prioridade && strcmp(lt.t[i].categoria, categoria) == 0) {
+    if (lt.t[i].prioridade == prioridade && strcmp(lt.t[i].categoria, categoria) == 0) { // verifica se a prioridade e a categoria sao iguais as digitadas pelo usuario
       printf("\nLembrete %d:\n", i + 1);
       printf("Prioridade: %d\n", lt.t[i].prioridade);
       printf("Categoria: %s\n", lt.t[i].categoria);
@@ -227,14 +223,14 @@ int filtrarCategoriaPrioridade(ListadeTarefas lt) {
   return 0;
 }
 
-int exportarPorPrioridade(ListadeTarefas lt) {
-  FILE *f = fopen("export.txt", "w");
+int exportarPorPrioridade(ListadeTarefas lt) { // funcao de exportar tarefas por prioridade
+  FILE *f = fopen("export.txt", "w"); // abre o arquivo export.txt para escrita
   printf("\nExportar por Prioridade\n");
   int numPrioridade;
   printf("\nDigite a prioridade: ");
-  scanf("%d", &numPrioridade);
+  scanf("%d", &numPrioridade); // escanea a prioridade digitada
   for (int i = 0; i < lt.qtd; i++) {
-    if (lt.t[i].prioridade == numPrioridade) {
+    if (lt.t[i].prioridade == numPrioridade) { // se a prioridade eh igual a prioridade digitada pelo usuario, a tarefa eh escrita no arquivo
       fprintf(f, "Lembrete %d:\n", lt.t[i].num);
       fprintf(f, "Prioridade: %d\n", lt.t[i].prioridade);
       fprintf(f, "Categoria: %s\n", lt.t[i].categoria);
@@ -250,25 +246,25 @@ int exportarPorPrioridade(ListadeTarefas lt) {
     }
   }
 
-  fclose(f);
+  fclose(f); // fecha o arquivo
   return 0;
 }
 
-int exportarPorCategoria(ListadeTarefas lt){
-  FILE *f = fopen("export.txt", "w");
+int exportarPorCategoria(ListadeTarefas lt){ // funcao de exportar tarefas por categoria
+  FILE *f = fopen("export.txt", "w"); // abre o arquivo export.txt para escrita
   printf("\Exportar por Categoria\n");
   char categoria[100];
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
   printf("\nDigite a categoria: ");
-  fgets(categoria, 100, stdin);
+  fgets(categoria, 100, stdin); // escanea a categoria digitada
   categoria[strcspn(categoria, "\n")] = '\0';
   for (int j = 10; j > -1; j--){
-    for (int i = 0; i < lt.qtd; i++){
+    for (int i = 0; i < lt.qtd; i++){ // percorre todas as tarefas
       int verificarCat = strcmp(lt.t[i].categoria, categoria);
-      if (verificarCat == 0) {
-        if (lt.t[i].prioridade == j) {
+      if (verificarCat == 0) { // verifica se a categoria digitada eh igual a categoria da tarefa
+        if (lt.t[i].prioridade == j) { // se a prioridade for igual a variavel do loop, imprime a tarefa
           fprintf(f, "Lembrete %d:\n", lt.t[i].num);
           fprintf(f, "Prioridade: %d\n", lt.t[i].prioridade);
           fprintf(f, "Categoria: %s\n", lt.t[i].categoria);
@@ -285,25 +281,25 @@ int exportarPorCategoria(ListadeTarefas lt){
       }
     }
   }
-  fclose(f);
+  fclose(f); // fecha o arquivo
   return 0;
 }
 
-int exportarPorPrioridadeCategoria(ListadeTarefas lt){
-  FILE *f = fopen("export.txt", "w");
+int exportarPorPrioridadeCategoria(ListadeTarefas lt){ // funcao de exportar tarefas por prioridade e categoria
+  FILE *f = fopen("export.txt", "w"); // abre o arquivo export.txt para escrita
   int prioridade;
   printf("\Exportar por Categoria e Prioridade\n");
   printf("\nDigite a prioridade: ");
-  scanf("%d", &prioridade);
+  scanf("%d", &prioridade); // escanea a prioridade digitada
   printf("\nDigite a categoria: ");
   char categoria[100];
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
-  fgets(categoria, 100, stdin);
+  fgets(categoria, 100, stdin); // escanea a categoria digitada
   categoria[strcspn(categoria, "\n")] = '\0';
-  for (int i = 0; i < lt.qtd; i++) {
-    if (lt.t[i].prioridade == prioridade && strcmp(lt.t[i].categoria, categoria) == 0) {
+  for (int i = 0; i < lt.qtd; i++) { // percorre todas as tarefas
+    if (lt.t[i].prioridade == prioridade && strcmp(lt.t[i].categoria, categoria) == 0) { // se a prioridade e categoria digitadas sao iguais a prioridade e categoria da tarefa, imprime a tarefa
       fprintf(f, "\nLembrete %d:\n", lt.t[i].num);
       fprintf(f, "Prioridade: %d\n", lt.t[i].prioridade);
       fprintf(f, "Categoria: %s\n", lt.t[i].categoria);
@@ -318,7 +314,7 @@ int exportarPorPrioridadeCategoria(ListadeTarefas lt){
       fprintf(f, "\n");
     }
   }
-  fclose(f);
+  fclose(f); // fecha o arquivo
   return 0;
 }
 

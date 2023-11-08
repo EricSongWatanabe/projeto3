@@ -3,9 +3,9 @@
 #include "biblioteca.h"
 
 int main() {
-  int cod; //
-  char arquivo[] = "tarefas";
-  ListadeTarefas lt;
+  int cod; //variavel para verificar a lista
+  char arquivo[] = "tarefas"; //nome do arquivo
+  ListadeTarefas lt; //variavel para armazenar a lista
 
 
   cod = carregarLista(&lt, arquivo); //chama a funcao de carregar a lista de tarefas
