@@ -1,8 +1,8 @@
 # projeto3
 
-Ess programa foi desenvolvido com o propósito de ajudar os usuários a organizar e gerenciar suas tarefas e lembretes de maneira eficiente. O termo "tarefas" refere-se a qualquer atividade, compromisso, lembrete ou item que um usuário deseja acompanhar ou realizar.
+Esse programa foi desenvolvido com o propósito de ajudar os usuários a organizar e gerenciar suas tarefas e lembretes de maneira eficiente. O termo "tarefas" refere-se a qualquer atividade, compromisso, lembrete ou item que um usuário deseja acompanhar ou realizar.
 
-Cada tarefa armazenada no programa é caracterizada por quatro principais atributos:
+Cada tarefa armazenada no programa é caracterizada por cinco principais atributos:
 
 Número: Cada tarefa é identificada por um número exclusivo. Esse número serve como uma espécie de identificador único para a tarefa, o que facilita sua identificação e gerenciamento.
 
@@ -12,7 +12,9 @@ Categoria: As tarefas podem ser agrupadas em categorias ou tipos diferentes. Iss
 
 Descrição: A descrição é um campo que permite ao usuário fornecer detalhes sobre a tarefa, como o que precisa ser feito, informações adicionais ou qualquer outra informação relevante.
 
-Em resumo, esse programa é um software que permite aos usuários armazenar, visualizar, editar e exportar tarefas. Cada tarefa é identificada por um número único, classificada por prioridade e categoria, e acompanhada de uma descrição que fornece informações adicionais sobre a tarefa. Isso ajuda os usuários a manterem o controle de suas tarefas diárias, priorizar o que é mais importante e organizar suas atividades de maneira mais eficaz.
+Estado: O estado reflete o progresso ou status da tarefa, podendo ser classificado como completo, em andamento ou nao iniciado.
+
+Em resumo, esse programa é um software que permite aos usuários armazenar, visualizar, editar e exportar tarefas. Cada tarefa é identificada por um número único, classificada por prioridade, categoria, estado, e acompanhada de uma descrição que fornece informações adicionais sobre a tarefa. Isso ajuda os usuários a manterem o controle de suas tarefas diárias, priorizar o que é mais importante e organizar suas atividades de maneira mais eficaz.
 
 ## Funcionalidades
 
@@ -34,27 +36,38 @@ O programa oferece as seguintes funcionalidades:
 
 8. **Filtrar por Categoria e Prioridade:** Permite ao usuário combinar critérios de categoria e prioridade para filtrar tarefas.
 
-9. **Exportar Tarefas por Prioridade:** Exporta tarefas com base em sua prioridade.
+9. **Exportar Tarefas por Prioridade:** Exporta tarefas com base em sua prioridade em um arquivo .txt.
 
-10. **Exportar Tarefas por Categoria:** Exporta tarefas com base em sua categoria.
+10. **Exportar Tarefas por Categoria:** Exporta tarefas com base em sua categoria em um arquivo .txt.
 
-11. **Exportar Tarefas por Prioridade e Categoria:** Exporta tarefas com base em uma combinação de prioridade e categoria.
+11. **Exportar Tarefas por Prioridade e Categoria:** Exporta tarefas com base em uma combinação de prioridade e categoria em um arquivo .txt.
 
 ## Menu Inicial
 
 O menu inicial oferece as seguintes opções:
-Menu:
+
 [1] Criar Tarefa
+
 [2] Deletar Tarefa
+
 [3] Listar Tarefas
+
 [4] Alterar Tarefa
+
 [5] Filtrar por Prioridade
+
 [6] Filtrar por Estado
+
 [7] Filtrar por Categoria
+
 [8] Filtrar por Categoria e Prioridade
+
 [9] Exportar Tarefa por Prioridade
+
 [10] Exportar Tarefa por Categoria
+
 [11] Exportar Tarefa por Prioridade e Categoria
+
 [0] Sair
 
 ## Como Usar
