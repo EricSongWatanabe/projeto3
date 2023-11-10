@@ -11,7 +11,7 @@ int main() {
   cod = carregarLista(&lt, arquivo); //chama a funcao de carregar a lista de tarefas
   if (cod == 1) //caso a lista estiver vazia, a quantidade é zerada
   lt.qtd = 0;
-  int opcao;
+  int opcao; //variavel para a opcao que o usuario escolher
   do {
     printMenu(); //imprime o menu com as funcoes
     scanf("%d", &opcao); //escanea qual a opcao que o usuario escolheu

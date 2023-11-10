@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int buscaTarefa(ListadeTarefas lt, int numTarefa) { // funcao de buscar a tarefa a partir do seu numero
+int buscaTarefa(ListadeTarefas lt,int numTarefa) { // funcao de buscar a tarefa a partir do seu numero
   for (int index = 0; index < 100; index++) { // percorre por toda a lista de tarefas ate achar o numero digitado
     if (lt.t[index].num == numTarefa) {
       return index; // retorna o index da tarefa
@@ -110,13 +110,13 @@ int alterarTarefa(ListadeTarefas *lt) { // funcao de alterar tarefa
       printf("\nOpcao invalida!\n");
     }
   }
-  printf("\nTarefa alterada com sucesso!\n");
+  printf("\nTarefa alterada com sucesso!\n"); // mensagem de confirmacao de alteracao da tarefa
   return 0;
 }
 
 int filtrarPrioridade(ListadeTarefas lt) { // funcao de filtrar tarefas por prioridade
   printf("\nFiltrar por Prioridade\n");
-  int numPrioridade;
+  int numPrioridade; // variavel que armazena a prioridade que o usuario deseja filtrar
   printf("Digite a prioridade: ");
   scanf("%d", &numPrioridade); // escanea qual a prioridade o usuario deseja filtrar
   for (int i = 0; i < lt.qtd; i++) {
@@ -139,7 +139,7 @@ int filtrarPrioridade(ListadeTarefas lt) { // funcao de filtrar tarefas por prio
 
 int filtrarEstado(ListadeTarefas lt) { // funcao de filtrar tarefas por estado
   printf("\nFiltrar por Estado\n");
-  int numEstado;
+  int numEstado; // variavel que armazena o estado que o usuario deseja filtrar
   printf("Digite o estado (1 = Completo | 2 = Em andamento | 3 = Nao iniciado): ");
   scanf("%d", &numEstado); // escanea qual o estado o usuario deseja filtrar
   for (int i = 0; i < lt.qtd; i++) {
@@ -162,7 +162,7 @@ int filtrarEstado(ListadeTarefas lt) { // funcao de filtrar tarefas por estado
 
 int filtrarCategoria(ListadeTarefas lt) { // funcao de filtrar tarefas por categoria
   printf("\nFiltrar por Categoria\n");
-  char categoria[100];
+  char categoria[100]; // variavel que armazena a categoria que o usuario deseja filtrar
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
@@ -193,15 +193,14 @@ int filtrarCategoria(ListadeTarefas lt) { // funcao de filtrar tarefas por categ
 }
 
 int filtrarCategoriaPrioridade(ListadeTarefas lt) { // funcao de filtrar tarefas por categoria e prioridade
-  int prioridade;
+  int prioridade; // variavel que armazena a prioridade que o usuario deseja filtrar
   printf("\nFiltrar por Categoria e Prioridade\n");
   printf("\nDigite a prioridade: ");
   scanf("%d", &prioridade); // escanea a prioridade digitada
   printf("\nDigite a categoria: ");
-  char categoria[100];
+  char categoria[100]; // variavel que armazena a categoria que o usuario deseja filtrar
   int c;
-  while ((c = getchar()) != '\n' && c != EOF) {
-  }
+  while ((c = getchar()) != '\n' && c != EOF) {} // limpa o buffer
   fgets(categoria, 100, stdin); // escanea a categoria digitada
   categoria[strcspn(categoria, "\n")] = '\0';
   printf("\nTarefas com prioridade %d e categoria %s:\n", prioridade, categoria);
@@ -226,7 +225,7 @@ int filtrarCategoriaPrioridade(ListadeTarefas lt) { // funcao de filtrar tarefas
 int exportarPorPrioridade(ListadeTarefas lt) { // funcao de exportar tarefas por prioridade
   FILE *f = fopen("export.txt", "w"); // abre o arquivo export.txt para escrita
   printf("\nExportar por Prioridade\n");
-  int numPrioridade;
+  int numPrioridade; // variavel que armazena a prioridade que o usuario deseja filtrar
   printf("\nDigite a prioridade: ");
   scanf("%d", &numPrioridade); // escanea a prioridade digitada
   for (int i = 0; i < lt.qtd; i++) {
@@ -253,7 +252,7 @@ int exportarPorPrioridade(ListadeTarefas lt) { // funcao de exportar tarefas por
 int exportarPorCategoria(ListadeTarefas lt){ // funcao de exportar tarefas por categoria
   FILE *f = fopen("export.txt", "w"); // abre o arquivo export.txt para escrita
   printf("\Exportar por Categoria\n");
-  char categoria[100];
+  char categoria[100]; // variavel que armazena a categoria que o usuario deseja filtrar
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
@@ -292,7 +291,7 @@ int exportarPorPrioridadeCategoria(ListadeTarefas lt){ // funcao de exportar tar
   printf("\nDigite a prioridade: ");
   scanf("%d", &prioridade); // escanea a prioridade digitada
   printf("\nDigite a categoria: ");
-  char categoria[100];
+  char categoria[100]; // variavel que armazena a categoria que o usuario deseja filtrar
   int c;
   while ((c = getchar()) != '\n' && c != EOF) {
   }
