@@ -230,18 +230,13 @@ int exportarPorPrioridade(ListadeTarefas lt) { // funcao de exportar tarefas por
   scanf("%d", &numPrioridade); // escanea a prioridade digitada
   for (int i = 0; i < lt.qtd; i++) {
     if (lt.t[i].prioridade == numPrioridade) { // se a prioridade eh igual a prioridade digitada pelo usuario, a tarefa eh escrita no arquivo
-      fprintf(f, "Lembrete %d:\n", lt.t[i].num);
-      fprintf(f, "Prioridade: %d\n", lt.t[i].prioridade);
-      fprintf(f, "Categoria: %s\n", lt.t[i].categoria);
-      fprintf(f, "Descricao: %s", lt.t[i].descricao);
       if (lt.t[i].estado == 1) { // se o estado for igual a 1, imprime como completo
-        fprintf(f, "Estado: Completo\n");
+        fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Completo | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
       } else if (lt.t[i].estado == 2) { // se o estado for igual a 2, imprime como em andamento
-        fprintf(f, "Estado: Em andamento\n");
+        fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Em andamento | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
       } else if (lt.t[i].estado == 3) { // se o estado for igual a 3, imprime como nao iniciado
-        fprintf(f, "Estado: Nao iniciado\n");
+        fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Nao iniciado | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
       }
-      fprintf(f, "\n");
     }
   }
 
@@ -264,18 +259,13 @@ int exportarPorCategoria(ListadeTarefas lt){ // funcao de exportar tarefas por c
       int verificarCat = strcmp(lt.t[i].categoria, categoria);
       if (verificarCat == 0) { // verifica se a categoria digitada eh igual a categoria da tarefa
         if (lt.t[i].prioridade == j) { // se a prioridade for igual a variavel do loop, imprime a tarefa
-          fprintf(f, "Lembrete %d:\n", lt.t[i].num);
-          fprintf(f, "Prioridade: %d\n", lt.t[i].prioridade);
-          fprintf(f, "Categoria: %s\n", lt.t[i].categoria);
-          fprintf(f, "Descricao: %s", lt.t[i].descricao);
           if (lt.t[i].estado == 1) { // se o estado for igual a 1, imprime como completo
-            fprintf(f, "Estado: Completo\n");
+            fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Completo | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
           } else if (lt.t[i].estado == 2) { // se o estado for igual a 2, imprime como em andamento
-            fprintf(f, "Estado: Em andamento\n");
+            fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Em andamento | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
           } else if (lt.t[i].estado == 3) { // se o estado for igual a 3, imprime como nao iniciado
-            fprintf(f, "Estado: Nao iniciado\n");
+            fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Nao iniciado | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
           }
-          fprintf(f, "\n");
         }
       }
     }
@@ -299,18 +289,13 @@ int exportarPorPrioridadeCategoria(ListadeTarefas lt){ // funcao de exportar tar
   categoria[strcspn(categoria, "\n")] = '\0';
   for (int i = 0; i < lt.qtd; i++) { // percorre todas as tarefas
     if (lt.t[i].prioridade == prioridade && strcmp(lt.t[i].categoria, categoria) == 0) { // se a prioridade e categoria digitadas sao iguais a prioridade e categoria da tarefa, imprime a tarefa
-      fprintf(f, "\nLembrete %d:\n", lt.t[i].num);
-      fprintf(f, "Prioridade: %d\n", lt.t[i].prioridade);
-      fprintf(f, "Categoria: %s\n", lt.t[i].categoria);
-      fprintf(f, "Descricao: %s", lt.t[i].descricao);
       if (lt.t[i].estado == 1) { // se o estado for igual a 1, imprime como completo
-        fprintf(f, "Estado: Completo\n");
+        fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Completo | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
       } else if (lt.t[i].estado == 2) { // se o estado for igual a 2, imprime como em andamento
-        fprintf(f, "Estado: Em andamento\n");
+        fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Em andamento | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
       } else if (lt.t[i].estado == 3) { // se o estado for igual a 3, imprime como nao iniciado
-        fprintf(f, "Estado: Nao iniciado\n");
+        fprintf(f, "Prioridade: %d | Categoria: %s | Estado: Nao iniciado | Descricao: %s\n", lt.t[i].prioridade, lt.t[i].categoria, lt.t[i].descricao);
       }
-      fprintf(f, "\n");
     }
   }
   fclose(f); // fecha o arquivo
